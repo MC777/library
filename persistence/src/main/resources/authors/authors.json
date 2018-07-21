@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "firstName": "Janek",
+    "lastName": "Kowal",
+    "placeOfBirth": "Nowa Wieś"
+  },
+  {
+    "id": 2,
+    "firstName": "Janek",
+    "lastName": "Kowal",
+    "placeOfBirth": "Nowa Wieś"
+  },
+  {
+    "id": 3,
+    "firstName": "Janek",
+    "lastName": "Kowal",
+    "placeOfBirth": "Nowa Wieś"
+  },
+  {
+    "id": 4,
+    "firstName": "Janek",
+    "lastName": "Kowal",
+    "placeOfBirth": "Nowa Wieś"
+  }
+]
