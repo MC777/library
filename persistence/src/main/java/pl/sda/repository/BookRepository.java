@@ -18,10 +18,10 @@ public class BookRepository implements IBookRepository {
 
     public void save(Book book) throws IOException {
         //List<Author> authors = new ArrayList<>();
-        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Author>>() {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });
         Long nextId = Long.valueOf(books.size() + 1);
-        book.setAuthorId(nextId);
+        book.setBookId(nextId);
         books.add(book);
         OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), books);
     }

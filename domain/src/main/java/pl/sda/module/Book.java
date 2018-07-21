@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @Setter
 public class Book {
 
+    private Long bookId;
     private Long authorId;
     private String title;
     private LocalDate release;
