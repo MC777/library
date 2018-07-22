@@ -3,20 +3,19 @@
     "bookId": 1,
     "authorId": null,
     "title": "Title",
-    "release": {
-      "year": 2018,
-      "month": "JUNE",
-      "era": "CE",
-      "dayOfMonth": 3,
-      "dayOfWeek": "SUNDAY",
-      "dayOfYear": 154,
-      "leapYear": false,
-      "monthValue": 6,
-      "chronology": {
-        "id": "ISO",
-        "calendarType": "iso8601"
-      }
-    },
+    "release": "2018-06-03",
+    "isbn": "ISBN-200",
+    "authorName": "Adam Mickiewicz",
+    "type": "HORROR",
+    "pages": 390,
+    "borrowerName": "Adam Kowalski",
+    "summary": "Bardzo ciekawa książka"
+  },
+  {
+    "bookId": 2,
+    "authorId": null,
+    "title": "Title",
+    "release": "2018-06-03",
     "isbn": "ISBN-200",
     "authorName": "Adam Mickiewicz",
     "type": "HORROR",

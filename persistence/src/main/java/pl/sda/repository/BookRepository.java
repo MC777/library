@@ -3,7 +3,6 @@ package pl.sda.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import pl.sda.module.Author;
 import pl.sda.module.Book;
 
 import java.io.File;
@@ -18,11 +17,10 @@ public class BookRepository implements IBookRepository {
     private static final String AUTHOR_DB_PATH = "./persistence/src/main/resources/books/books.json";
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
-    public BookRepository(){
+    public BookRepository() {
         OBJECT_MAPPER.registerModule(new JavaTimeModule());
         OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     }
-
 
     public void save(Book book) throws IOException {
         //List<Author> authors = new ArrayList<>();
