@@ -1,17 +1,12 @@
 package pl.sda.entry;
 
-import pl.sda.controller.AuthorController;
 import pl.sda.controller.BookController;
-import pl.sda.controller.BorrowerController;
 import pl.sda.entry.enums.State;
-import pl.sda.module.Book;
 import pl.sda.module.BooksType;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Scanner;
-
-import static pl.sda.module.BooksType.HORROR;
 
 /**
  * Created by MCK on 21.07.2018 12:28
@@ -23,7 +18,7 @@ public class LibraryLauncher {
         State state = State.INIT;
         Scanner scanner = new Scanner(System.in);
         BookController bookController = new BookController();
-        while (state != State.EXIT){
+        while (state != State.EXIT) {
             switch (state) {
                 case INIT:
                     System.out.println("****************************************************************");
@@ -92,11 +87,12 @@ public class LibraryLauncher {
                     String authorName = scanner.nextLine();
                     System.out.println("Please provide BOOK TYPE:");
                     int i = 1;
-                    for(BooksType b: BooksType.values()){
+                    for (BooksType b : BooksType.values()) {
                         System.out.println(i + " - " + b.name());
                         i++;
                     }
                     Integer x = scanner.nextInt();
+                    scanner.nextLine();
                     BooksType.values();
                     BooksType bookType = BooksType.getFromInt(x);
 
@@ -106,14 +102,16 @@ public class LibraryLauncher {
                     System.out.println("Please provide SHORT SUMMARY:");
                     String summary = scanner.nextLine();
 
-                    bookController.save(title,relase,isbn,authorName,bookType,pages,summary);
+                    bookController.save(title, relase, isbn, authorName, bookType, pages, summary);
                     state = State.INIT;
                     break;
                 case REMOVING_BOOK:
                     System.out.println("Please provide no of book to remove:");
+                    bookController.readBooks();
                     Long idToDelete = scanner.nextLong();
+                    scanner.nextLine();
                     bookController.deleteBook(idToDelete);
-                    state = State.SHOWING_BOOKS;
+                    state = State.INIT;
                     break;
                 case EDITING_BOOK:
                     break;
@@ -131,18 +129,5 @@ public class LibraryLauncher {
                     break;
             }
         }
-
-        //AuthorController authorController = new AuthorController();
-        //authorController.save("Janek", "Kowal", "Nowa Wieś");
-
-
-        //bookController.save("Title", LocalDate.parse("2018-06-03"), "ISBN-200","Adam Mickiewicz",HORROR,390,"Adam Kowalski", "Bardzo ciekawa książka");
-       // bookController.deleteBook(1L);
-        //bookController.deleteBook(2L);
-
-       // BorrowerController borrowerController = new BorrowerController();
-       // borrowerController.save("Piotr","Piotrkowski","Polska 11","100-100-100", "piotrkowski@gmail.com");
-
-
     }
 }
