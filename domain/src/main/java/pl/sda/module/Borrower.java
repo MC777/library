@@ -12,7 +12,7 @@ public class Borrower {
 
     private Long borrowerId;
     private String borrowerFirstName;
-    private String borrowerLastname;
+    private String borrowerLastName;
     private String borrowerHomeAddress;
     private String borrowerPhoneNumber;
     private String borrowerEmail;
