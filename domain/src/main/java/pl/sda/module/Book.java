@@ -20,7 +20,7 @@ public class Book {
     private String authorName;
     private BooksType type;
     private Integer pages;
-    // private boolean borrow
+    private boolean isBorrow;
     private String borrowerName;
     private String summary;
 }
