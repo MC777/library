@@ -43,6 +43,7 @@ public class BookRepository implements IBookRepository {
                 break;
             }
         }
+        OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), books);
     }
 
     @Override
