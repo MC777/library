@@ -12,4 +12,6 @@ public interface IBookService {
     void save(Book book) throws IOException;
     void deleteBook(Long bookId) throws IOException;
     void readBooks() throws IOException;
+    void readBooks(Long bookId) throws IOException;
+    void editBook(Book book) throws  IOException;
 }

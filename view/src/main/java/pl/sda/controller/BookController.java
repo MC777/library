@@ -22,7 +22,7 @@ public class BookController {
         book.setRelease(release);
         book.setIsbn(isbn);
         book.setAuthorName(authorName);
-        book.setType(type);
+        book.setBookType(type);
         book.setPages(pages);
         //book.setBorrowerName(borrowerName);
         book.setSummary(summary);
@@ -35,6 +35,14 @@ public class BookController {
 
     public void readBooks() throws IOException{
         bookService.readBooks();
+    }
+
+    public void readBooks(Long bookId) throws IOException{
+        bookService.readBooks(bookId);
+    }
+
+    public void editBook(Book book) throws IOException{
+        bookService.editBook(book);
     }
 
 }

@@ -37,8 +37,8 @@ public class BookRepository implements IBookRepository {
     public void deleteBook(Long bookId) throws IOException {
         List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });
-        for(Book b: books){
-            if(bookId.equals(b.getBookId())){
+        for (Book b : books) {
+            if (bookId.equals(b.getBookId())) {
                 books.remove(b);
                 break;
             }
@@ -50,9 +50,36 @@ public class BookRepository implements IBookRepository {
     public void readBooks() throws IOException {
         List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });
-        for(Book b: books){
-            System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getType() +" " + b.getIsbn());
+        for (Book b : books) {
+            System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
         }
+    }
+
+    @Override
+    public void readBooks(Long bookId) throws IOException {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
+        });
+        for (Book b : books) {
+            if (bookId.equals(b.getBookId())) {
+                System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
+            }
+        }
+    }
+
+    @Override
+    public void editBook(Book book) throws IOException {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
+        });
+        int i = 0;
+        for (Book b : books) {
+            if (book.getBookId().equals(b.getBookId())) {
+
+                books.set(i, book);
+                break;
+            }
+            i++;
+        }
+        OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), books);
     }
 
 }

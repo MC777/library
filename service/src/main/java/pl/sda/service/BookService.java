@@ -28,4 +28,14 @@ public class BookService implements IBookService{
         bookRepository.readBooks();
     }
 
+    @Override
+    public void readBooks(Long bookId) throws IOException {
+        bookRepository.readBooks(bookId);
+    }
+
+    @Override
+    public void editBook(Book book) throws IOException {
+        bookRepository.editBook(book);
+    }
+
 }

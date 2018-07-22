@@ -2,9 +2,11 @@ package pl.sda.entry;
 
 import pl.sda.controller.BookController;
 import pl.sda.entry.enums.State;
+import pl.sda.module.Book;
 import pl.sda.module.BooksType;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -114,6 +116,84 @@ public class LibraryLauncher {
                     state = State.INIT;
                     break;
                 case EDITING_BOOK:
+                    System.out.println("Please select book for editing:");
+                    bookController.readBooks();
+                    Long idToEdit = scanner.nextLong();
+                    scanner.nextLine();
+                    bookController.readBooks(idToEdit);
+                    //TODO
+                    Book book = new Book();
+                    System.out.println("Please provide book TITLE. /If you don't want edit that field, please press enter/");
+                    title = scanner.nextLine();
+                    if (title.equals("")) {
+                        book.setTitle(book.getTitle());
+                    } else {
+                        book.setTitle(title);
+                    }
+                    System.out.println("Please provide book RELASE DATE. /If you don't want edit that field, please press enter/");
+                    //TODO - error for blank value
+                    try {
+                        relase = LocalDate.parse(scanner.nextLine());
+                    } catch (Exception e){
+                        relase = null;
+                    }
+
+
+                    if (relase.equals(null)) {
+                        book.setRelease(book.getRelease());
+                    } else {
+                        book.setRelease(relase);
+                    }
+
+                    System.out.println("Please provide book ISBN. /If you don't want edit that field, please press enter/");
+                    isbn = scanner.nextLine();
+                    if (isbn.equals("")) {
+                        book.setIsbn(book.getIsbn());
+                    } else {
+                        book.setIsbn(isbn);
+                    }
+                    System.out.println("Please provide book AUTHOR NAME. /If you don't want edit that field, please press enter/");
+                    authorName = scanner.nextLine();
+                    if (authorName.equals("")) {
+                        book.setAuthorName(book.getAuthorName());
+                    } else {
+                        book.setAuthorName(authorName);
+                    }
+                    System.out.println("Please provide book TYPE. /If you don't want edit that field, please press enter/");
+                    i = 1;
+                    for (BooksType b : BooksType.values()) {
+                        System.out.println(i + " - " + b.name());
+                        i++;
+                    }
+                    x = scanner.nextInt();
+                    scanner.nextLine();
+                    BooksType.values();
+                    bookType = BooksType.getFromInt(x);
+                    if (bookType.getFromInt(x).getText().equals("")) {
+                        book.setBookType(book.getBookType());
+                    } else {
+                        book.setBookType(bookType);
+                    }
+
+                    System.out.println("Please provide book NO OF PAGES. /If you don't want edit that field, please press enter/");
+                    pages = scanner.nextInt();
+                    scanner.nextLine();
+                    if (pages.equals(null)) {
+                        book.setPages(book.getPages());
+                    } else {
+                        book.setPages(pages);
+                    }
+                    System.out.println("Please provide book SUMMARY. /If you don't want edit that field, please press enter/");
+                    summary = scanner.nextLine();
+                    if (summary.equals("")) {
+                        book.setSummary(book.getSummary());
+                    } else {
+                        book.setSummary(summary);
+                    }
+
+                    book = new Book(idToEdit, title, relase, isbn, authorName, bookType, pages, summary);
+                    bookController.editBook(book);
+                    state = State.INIT;
                     break;
                 case SHOWING_BOOKS:
                     bookController.readBooks();
