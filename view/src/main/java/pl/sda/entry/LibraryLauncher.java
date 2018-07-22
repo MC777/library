@@ -3,9 +3,11 @@ package pl.sda.entry;
 import pl.sda.controller.AuthorController;
 import pl.sda.controller.BookController;
 import pl.sda.controller.BorrowerController;
+import pl.sda.entry.enums.State;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import static pl.sda.module.BooksType.HORROR;
 
@@ -15,6 +17,9 @@ import static pl.sda.module.BooksType.HORROR;
 public class LibraryLauncher {
 
     public static void main(String[] args) throws IOException {
+
+        State state = State.INIT;
+        Scanner scanner = new Scanner(System.in);
 
         AuthorController authorController = new AuthorController();
         authorController.save("Janek", "Kowal", "Nowa Wieś");
