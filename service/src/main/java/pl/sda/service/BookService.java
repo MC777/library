@@ -18,4 +18,14 @@ public class BookService implements IBookService{
         bookRepository.save(book);
     }
 
+    @Override
+    public void deleteBook(Long bookId) throws IOException {
+        bookRepository.deleteBook(bookId);
+    }
+
+    @Override
+    public void readBooks() throws IOException {
+        bookRepository.readBooks();
+    }
+
 }

@@ -1,18 +1,1 @@
-[
-  {
-    "borrowerId": 1,
-    "borrowerFirstName": "Piotr",
-    "borrowerLastName": "Piotrkowski",
-    "borrowerHomeAddress": "Polska 11",
-    "borrowerPhoneNumber": "100-100-100",
-    "borrowerEmail": "piotrkowski@gmail.com"
-  },
-  {
-    "borrowerId": 2,
-    "borrowerFirstName": "Piotr",
-    "borrowerLastName": "Piotrkowski",
-    "borrowerHomeAddress": "Polska 11",
-    "borrowerPhoneNumber": "100-100-100",
-    "borrowerEmail": "piotrkowski@gmail.com"
-  }
-]
+[{"borrowerId":1,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":2,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":3,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":4,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":5,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":6,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":7,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":8,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":9,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":10,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":11,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":12,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":13,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"},{"borrowerId":14,"borrowerFirstName":"Piotr","borrowerLastName":"Piotrkowski","borrowerHomeAddress":"Polska 11","borrowerPhoneNumber":"100-100-100","borrowerEmail":"piotrkowski@gmail.com"}]

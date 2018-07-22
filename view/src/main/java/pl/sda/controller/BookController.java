@@ -15,7 +15,7 @@ public class BookController {
 
     private IBookService bookService = new BookService();
 
-    public void save(String title, LocalDate release, String isbn, String authorName, BooksType type, Integer pages, String borrowerName, String summary) throws IOException {
+    public void save(String title, LocalDate release, String isbn, String authorName, BooksType type, Integer pages, String summary) throws IOException {
         Book book = new Book();
         //book.setAuthorId(authorId);
         book.setTitle(title);
@@ -24,9 +24,17 @@ public class BookController {
         book.setAuthorName(authorName);
         book.setType(type);
         book.setPages(pages);
-        book.setBorrowerName(borrowerName);
+        //book.setBorrowerName(borrowerName);
         book.setSummary(summary);
         bookService.save(book);
+    }
+
+    public void deleteBook(Long bookId) throws IOException{
+        bookService.deleteBook(bookId);
+    }
+
+    public void readBooks() throws IOException{
+        bookService.readBooks();
     }
 
 }

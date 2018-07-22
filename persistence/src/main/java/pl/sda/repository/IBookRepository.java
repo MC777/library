@@ -10,4 +10,8 @@ import java.io.IOException;
 public interface IBookRepository {
 
     void save(Book book) throws IOException;
+
+    void deleteBook(Long bookId) throws IOException;
+
+    void readBooks() throws IOException;
 }

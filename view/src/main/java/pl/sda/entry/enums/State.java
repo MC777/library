@@ -6,10 +6,13 @@ package pl.sda.entry.enums;
 public enum State {
 
     INIT,
-    LOGGING,
-    LOGGED,
-    CREATING,
-    SAVE_DATA,
+    ADDING_BOOK,
+    REMOVING_BOOK,
+    EDITING_BOOK,
+    SHOWING_BOOKS,
+    ADDING_AUTHOR,
+    RENTTING_BOOK,
+    GETTING_BACK_BOOK,
     EXIT,
 
 }

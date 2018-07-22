@@ -20,4 +20,11 @@ public enum BooksType {
     }
 
     public String getText(){return text;}
+
+    public static BooksType getFromInt(int choosenType){
+        BooksType[] values = BooksType.values();
+        return values[choosenType-1];
+    }
+
+
 }
