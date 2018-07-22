@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "borrowerId": 1,
+    "borrowerFirstName": "Piotr",
+    "borrowerLastName": "Piotrkowski",
+    "borrowerHomeAddress": "Polska 11",
+    "borrowerPhoneNumber": "100-100-100",
+    "borrowerEmail": "piotrkowski@gmail.com"
+  },
+  {
+    "borrowerId": 2,
+    "borrowerFirstName": "Piotr",
+    "borrowerLastName": "Piotrkowski",
+    "borrowerHomeAddress": "Polska 11",
+    "borrowerPhoneNumber": "100-100-100",
+    "borrowerEmail": "piotrkowski@gmail.com"
+  }
+]

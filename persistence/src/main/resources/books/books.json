@@ -9,7 +9,8 @@
     "type": "HORROR",
     "pages": 390,
     "borrowerName": "Adam Kowalski",
-    "summary": "Bardzo ciekawa książka"
+    "summary": "Bardzo ciekawa książka",
+    "borrow": false
   },
   {
     "bookId": 2,
@@ -21,6 +22,33 @@
     "type": "HORROR",
     "pages": 390,
     "borrowerName": "Adam Kowalski",
-    "summary": "Bardzo ciekawa książka"
+    "summary": "Bardzo ciekawa książka",
+    "borrow": false
+  },
+  {
+    "bookId": 3,
+    "authorId": null,
+    "title": "Title",
+    "release": "2018-06-03",
+    "isbn": "ISBN-200",
+    "authorName": "Adam Mickiewicz",
+    "type": "HORROR",
+    "pages": 390,
+    "borrowerName": "Adam Kowalski",
+    "summary": "Bardzo ciekawa książka",
+    "borrow": false
+  },
+  {
+    "bookId": 4,
+    "authorId": null,
+    "title": "Title",
+    "release": "2018-06-03",
+    "isbn": "ISBN-200",
+    "authorName": "Adam Mickiewicz",
+    "type": "HORROR",
+    "pages": 390,
+    "borrowerName": "Adam Kowalski",
+    "summary": "Bardzo ciekawa książka",
+    "borrow": false
   }
 ]
