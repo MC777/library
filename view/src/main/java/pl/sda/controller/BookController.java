@@ -11,6 +11,7 @@ import java.time.LocalDate;
 /**
  * Created by MCK on 21.07.2018 14:09
  **/
+
 public class BookController {
 
     private IBookService bookService = new BookService();
@@ -45,4 +46,7 @@ public class BookController {
         bookService.editBook(book);
     }
 
+    public Book getBook(Long bookId) throws IOException {
+        return bookService.getBook(bookId);
+    }
 }

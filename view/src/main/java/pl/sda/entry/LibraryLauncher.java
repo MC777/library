@@ -6,7 +6,6 @@ import pl.sda.module.Book;
 import pl.sda.module.BooksType;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.Scanner;
 
@@ -81,7 +80,7 @@ public class LibraryLauncher {
                 case ADDING_BOOK:
                     System.out.println("Please provide book TITLE:");
                     String title = scanner.nextLine();
-                    System.out.println("Please provide RELASE DATE (sample: 2018-01-20:");
+                    System.out.println("Please provide RELASE DATE (sample: 2018-01-20):");
                     LocalDate relase = LocalDate.parse(scanner.nextLine());
                     System.out.println("Please provide ISBN:");
                     String isbn = scanner.nextLine();
@@ -120,73 +119,74 @@ public class LibraryLauncher {
                     bookController.readBooks();
                     Long idToEdit = scanner.nextLong();
                     scanner.nextLine();
-                    bookController.readBooks(idToEdit);
-                    //TODO
-                    Book book = new Book();
+                    Book book = bookController.getBook(idToEdit);
+
                     System.out.println("Please provide book TITLE. /If you don't want edit that field, please press enter/");
                     title = scanner.nextLine();
                     if (title.equals("")) {
-                        book.setTitle(book.getTitle());
+                        title = book.getTitle();
                     } else {
                         book.setTitle(title);
                     }
-                    System.out.println("Please provide book RELASE DATE. /If you don't want edit that field, please press enter/");
-                    //TODO - error for blank value
-                    try {
-                        relase = LocalDate.parse(scanner.nextLine());
-                    } catch (Exception e){
-                        relase = null;
-                    }
 
+                    System.out.println("Please provide book RELEASE DATE. /If you don't want edit that field, please press enter/");
+                    String scCheck1 = scanner.nextLine();
 
-                    if (relase.equals(null)) {
-                        book.setRelease(book.getRelease());
+                    if (scCheck1.equals("")) {
+                        relase = book.getRelease();
                     } else {
+                        relase = LocalDate.parse(scCheck1);
                         book.setRelease(relase);
                     }
 
                     System.out.println("Please provide book ISBN. /If you don't want edit that field, please press enter/");
                     isbn = scanner.nextLine();
                     if (isbn.equals("")) {
-                        book.setIsbn(book.getIsbn());
+                        isbn = book.getIsbn();
                     } else {
                         book.setIsbn(isbn);
                     }
+
                     System.out.println("Please provide book AUTHOR NAME. /If you don't want edit that field, please press enter/");
                     authorName = scanner.nextLine();
                     if (authorName.equals("")) {
-                        book.setAuthorName(book.getAuthorName());
+                        authorName = book.getAuthorName();
                     } else {
                         book.setAuthorName(authorName);
                     }
+
                     System.out.println("Please provide book TYPE. /If you don't want edit that field, please press enter/");
                     i = 1;
                     for (BooksType b : BooksType.values()) {
                         System.out.println(i + " - " + b.name());
                         i++;
                     }
-                    x = scanner.nextInt();
-                    scanner.nextLine();
-                    BooksType.values();
-                    bookType = BooksType.getFromInt(x);
-                    if (bookType.getFromInt(x).getText().equals("")) {
-                        book.setBookType(book.getBookType());
+
+                    String scCheck3 = scanner.nextLine();
+
+                    if (scCheck3.equals("")) {
+                        bookType = book.getBookType();
                     } else {
+                        x = Integer.parseInt(scCheck3);
+                        //BooksType.values();
+                        bookType = BooksType.getFromInt(x);
                         book.setBookType(bookType);
                     }
 
                     System.out.println("Please provide book NO OF PAGES. /If you don't want edit that field, please press enter/");
-                    pages = scanner.nextInt();
-                    scanner.nextLine();
-                    if (pages.equals(null)) {
-                        book.setPages(book.getPages());
+                    String scCheck2 = scanner.nextLine();
+
+                    if (scCheck2.equals("")) {
+                        pages = book.getPages();
                     } else {
+                        pages = Integer.parseInt(scCheck2);
                         book.setPages(pages);
                     }
+
                     System.out.println("Please provide book SUMMARY. /If you don't want edit that field, please press enter/");
                     summary = scanner.nextLine();
                     if (summary.equals("")) {
-                        book.setSummary(book.getSummary());
+                        summary = book.getSummary();
                     } else {
                         book.setSummary(summary);
                     }

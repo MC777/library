@@ -42,5 +42,7 @@ public class Book {
         this.summary = summary;
     }
 
-
+    public Book(Long bookId) {
+        this.bookId = bookId;
+    }
 }

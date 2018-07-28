@@ -57,13 +57,21 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public void readBooks(Long bookId) throws IOException {
+
+    }
+
+    @Override
+    public Book getBook(Long bookId) throws IOException {
         List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });
+
         for (Book b : books) {
             if (bookId.equals(b.getBookId())) {
-                System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
+                return b;
+                //System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
             }
         }
+        return null;
     }
 
     @Override
