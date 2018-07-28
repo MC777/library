@@ -1,1 +1,21 @@
-[]
+[
+  {
+    "borrowId": 1,
+    "borrowDate": {
+      "year": 2018,
+      "month": "JULY",
+      "chronology": {
+        "id": "ISO",
+        "calendarType": "iso8601"
+      },
+      "era": "CE",
+      "dayOfMonth": 28,
+      "dayOfWeek": "SATURDAY",
+      "dayOfYear": 209,
+      "leapYear": false,
+      "monthValue": 7
+    },
+    "borrowerId": 6,
+    "bookId": 2
+  }
+]

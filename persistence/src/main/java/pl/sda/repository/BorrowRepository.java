@@ -20,7 +20,7 @@ public class BorrowRepository implements IBorrowRepository {
         List<Borrow> borrows = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Borrow>>() {
         });
         Long nextId = Long.valueOf(borrows.size() + 1);
-        borrow.setBorrowerId(nextId);
+        borrow.setBorrowId(nextId);
         borrows.add(borrow);
         OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), borrows);
     }

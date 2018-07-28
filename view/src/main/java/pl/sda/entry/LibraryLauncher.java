@@ -2,10 +2,12 @@ package pl.sda.entry;
 
 import pl.sda.controller.AuthorController;
 import pl.sda.controller.BookController;
+import pl.sda.controller.BorrowController;
 import pl.sda.controller.BorrowerController;
 import pl.sda.entry.enums.State;
 import pl.sda.module.Book;
 import pl.sda.module.BooksType;
+import pl.sda.module.Borrow;
 import pl.sda.module.Borrower;
 
 import java.io.IOException;
@@ -25,6 +27,7 @@ public class LibraryLauncher {
         BookController bookController = new BookController();
         AuthorController authorController = new AuthorController();
         BorrowerController borrowerController = new BorrowerController();
+        BorrowController borrowController = new BorrowController();
 
         while (state != State.EXIT) {
             switch (state) {
@@ -252,9 +255,10 @@ public class LibraryLauncher {
                     } else {
                         System.out.println("Please select book to borrow:");
                         bookController.readAvailableBooks();
-                        Integer noOfBookToBorrow = scanner.nextInt();
+                        Long noOfBookToBorrow = scanner.nextLong();
                         scanner.nextLine();
-                        Borrower borrower = borrowerController.getBorrower(borrowerSelectionOrCreation);
+                        LocalDate borrowDate = LocalDate.now();
+                        borrowController.save(borrowDate,borrowerSelectionOrCreation,noOfBookToBorrow);
                     }
 
                     state = State.INIT;
