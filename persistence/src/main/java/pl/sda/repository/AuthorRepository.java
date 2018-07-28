@@ -20,7 +20,7 @@ public class AuthorRepository implements IAuthorRepository {
         List<Author> authors = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Author>>() {
         });
         Long nextId = Long.valueOf(authors.size() + 1);
-        author.setId(nextId);
+        author.setAuthorId(nextId);
         authors.add(author);
         OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), authors);
     }

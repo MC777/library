@@ -5,6 +5,7 @@ import pl.sda.repository.BookRepository;
 import pl.sda.repository.IBookRepository;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 /**
  * Created by MCK on 21.07.2018 10:52
@@ -21,6 +22,7 @@ public class BookService implements IBookService{
     @Override
     public void deleteBook(Long bookId) throws IOException {
         bookRepository.deleteBook(bookId);
+        System.err.println("[Book has been deleted] Id: " + bookId);
     }
 
     @Override
@@ -31,6 +33,11 @@ public class BookService implements IBookService{
     @Override
     public void readBooks(Long bookId) throws IOException {
         bookRepository.readBooks(bookId);
+    }
+
+    @Override
+    public void readAvailableBooks() throws IOException {
+        bookRepository.readAvailableBooks();
     }
 
     @Override

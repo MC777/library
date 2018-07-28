@@ -38,6 +38,10 @@ public class BookController {
         bookService.readBooks();
     }
 
+    public void readAvailableBooks() throws IOException{
+        bookService.readAvailableBooks();
+    }
+
     public void readBooks(Long bookId) throws IOException{
         bookService.readBooks(bookId);
     }

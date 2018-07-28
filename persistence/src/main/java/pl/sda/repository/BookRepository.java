@@ -51,13 +51,23 @@ public class BookRepository implements IBookRepository {
         List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });
         for (Book b : books) {
-            System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
+            System.out.println(b.getBookId() + " - " + b.getTitle() + " | " + b.getRelease() + " | " + b.getIsbn() + " | " + b.getAuthorName() + " | " + b.getBookType() + " | " + b.getPages() + " | " + b.getSummary() + " | " + b.isBorrow());
         }
     }
 
     @Override
     public void readBooks(Long bookId) throws IOException {
 
+    }
+
+    @Override
+    public void readAvailableBooks() throws IOException {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
+        });
+        for (Book b : books) {
+            if (!b.isBorrow())
+            System.out.println(b.getBookId() + " - " + b.getTitle() + " | " + b.getRelease() + " | " + b.getIsbn() + " | " + b.getAuthorName() + " | " + b.getBookType() + " | " + b.getPages() + " | " + b.getSummary() + " | " + b.isBorrow());
+        }
     }
 
     @Override
@@ -68,7 +78,6 @@ public class BookRepository implements IBookRepository {
         for (Book b : books) {
             if (bookId.equals(b.getBookId())) {
                 return b;
-                //System.out.println(b.getBookId() + " - " + b.getTitle() + " " + b.getAuthorName() + " " + b.getBookType() + " " + b.getIsbn());
             }
         }
         return null;

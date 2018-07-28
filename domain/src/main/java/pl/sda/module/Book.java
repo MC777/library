@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @ToString
 public class Book {
 
-    //private final BooksType bookType;
     private Long bookId;
     private Long authorId;
     private String title;
@@ -40,6 +39,18 @@ public class Book {
         this.bookType = bookType;
         this.pages = pages;
         this.summary = summary;
+    }
+
+    public Book(Long bookId, String title, LocalDate relase, String isbn, String authorName, BooksType bookType, Integer pages, String summary, boolean isBorrow) {
+        this.bookId = bookId;
+        this.title = title;
+        this.release = relase;
+        this.isbn = isbn;
+        this.authorName = authorName;
+        this.bookType = bookType;
+        this.pages = pages;
+        this.summary = summary;
+        this.isBorrow = isBorrow;
     }
 
     public Book(Long bookId) {

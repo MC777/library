@@ -17,6 +17,8 @@ public interface IBookRepository {
 
     void readBooks(Long bookId) throws IOException;
 
+    void readAvailableBooks() throws IOException;
+
     Book getBook(Long bookId) throws IOException;
 
     void editBook(Book book) throws IOException;

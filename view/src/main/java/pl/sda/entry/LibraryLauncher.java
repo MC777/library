@@ -1,6 +1,8 @@
 package pl.sda.entry;
 
+import pl.sda.controller.AuthorController;
 import pl.sda.controller.BookController;
+import pl.sda.controller.BorrowerController;
 import pl.sda.entry.enums.State;
 import pl.sda.module.Book;
 import pl.sda.module.BooksType;
@@ -19,6 +21,9 @@ public class LibraryLauncher {
         State state = State.INIT;
         Scanner scanner = new Scanner(System.in);
         BookController bookController = new BookController();
+        AuthorController authorController = new AuthorController();
+        BorrowerController borrowerController = new BorrowerController();
+
         while (state != State.EXIT) {
             switch (state) {
                 case INIT:
@@ -200,8 +205,40 @@ public class LibraryLauncher {
                     state = State.INIT;
                     break;
                 case ADDING_AUTHOR:
+                    System.out.println("Please provide author FIRST NAME:");
+                    String authorFirstName = scanner.nextLine();
+                    System.out.println("Please provide author LAST NAME:");
+                    String authorLastName = scanner.nextLine();
+                    System.out.println("Please provide author PLACE OF BIRTH:");
+                    String authorPlaceOfBirth = scanner.nextLine();
+                    authorController.save(authorFirstName,authorLastName,authorPlaceOfBirth);
+                    state = State.INIT;
                     break;
                 case RENTTING_BOOK:
+                    System.out.println("Please select book to borrow:");
+                    bookController.readAvailableBooks();
+                    Integer noOfBookToBorrow = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Please create new borrower or select existing one:");
+                    System.out.println("0 - add new one");
+                    if (noOfBookToBorrow == 0) {
+                        System.out.println("Please provide borrower FIRST NAME:");
+                        String borrowerFirstName = scanner.nextLine();
+                        System.out.println("Please provide borrower LAST NAME:");
+                        String borrowerLastName = scanner.nextLine();
+                        System.out.println("Please provide borrower HOME ADDRESS:");
+                        String borrowerHomeAddress = scanner.nextLine();
+                        System.out.println("Please provide borrower PHONE NUMBER:");
+                        String borrowerPhoneNumber = scanner.nextLine();
+                        System.out.println("Please provide borrower BORROWER EMAIL:");
+                        String borrowerEmail = scanner.nextLine();
+                        borrowerController.save(borrowerFirstName,borrowerLastName,borrowerHomeAddress,borrowerPhoneNumber,borrowerEmail);
+                    } else {
+
+                    }
+
+
+                    state = State.INIT;
                     break;
                 case GETTING_BACK_BOOK:
                     break;
