@@ -217,14 +217,8 @@ public class LibraryLauncher {
                     state = State.INIT;
                     break;
                 case RENTTING_BOOK:
-                    System.out.println("Please select book to borrow:");
-                    bookController.readAvailableBooks();
-                    //Integer noOfBookToBorrow = scanner.nextInt();
-                    //scanner.nextLine();
-
                     System.out.println("Please create new borrower or select existing one:");
                     System.out.println("0 - add new one");
-
 
                     int borrowerListSize = borrowerController.getBorrowersList().size();
                     for (int y = 0; y < borrowerListSize; y++){
@@ -236,7 +230,7 @@ public class LibraryLauncher {
                                 borrowerController.getBorrowersList().get(y).getBorrowerEmail());
                     }
 
-                    borrowerController.readAllBorrowers();
+                    //borrowerController.readAllBorrowers();
 
                     Long borrowerSelectionOrCreation = scanner.nextLong();
                     scanner.nextLine();
@@ -256,7 +250,11 @@ public class LibraryLauncher {
                         state = State.RENTTING_BOOK;
                         break;
                     } else {
-                        //Borrower borrower = borrowerController.getBorrower(borrowerSelectionOrCreation);
+                        System.out.println("Please select book to borrow:");
+                        bookController.readAvailableBooks();
+                        Integer noOfBookToBorrow = scanner.nextInt();
+                        scanner.nextLine();
+                        Borrower borrower = borrowerController.getBorrower(borrowerSelectionOrCreation);
                     }
 
                     state = State.INIT;
