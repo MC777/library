@@ -6,9 +6,11 @@ import pl.sda.controller.BorrowerController;
 import pl.sda.entry.enums.State;
 import pl.sda.module.Book;
 import pl.sda.module.BooksType;
+import pl.sda.module.Borrower;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -211,17 +213,35 @@ public class LibraryLauncher {
                     String authorLastName = scanner.nextLine();
                     System.out.println("Please provide author PLACE OF BIRTH:");
                     String authorPlaceOfBirth = scanner.nextLine();
-                    authorController.save(authorFirstName,authorLastName,authorPlaceOfBirth);
+                    authorController.save(authorFirstName, authorLastName, authorPlaceOfBirth);
                     state = State.INIT;
                     break;
                 case RENTTING_BOOK:
                     System.out.println("Please select book to borrow:");
                     bookController.readAvailableBooks();
-                    Integer noOfBookToBorrow = scanner.nextInt();
-                    scanner.nextLine();
+                    //Integer noOfBookToBorrow = scanner.nextInt();
+                    //scanner.nextLine();
+
                     System.out.println("Please create new borrower or select existing one:");
                     System.out.println("0 - add new one");
-                    if (noOfBookToBorrow == 0) {
+
+
+                    int borrowerListSize = borrowerController.getBorrowersList().size();
+                    for (int y = 0; y < borrowerListSize; y++){
+                        System.out.println(borrowerController.getBorrowersList().get(y).getBorrowerId() + " - " +
+                                borrowerController.getBorrowersList().get(y).getBorrowerFirstName() + " | " +
+                                borrowerController.getBorrowersList().get(y).getBorrowerLastName() + " | " +
+                                borrowerController.getBorrowersList().get(y).getBorrowerHomeAddress() + " | " +
+                                borrowerController.getBorrowersList().get(y).getBorrowerPhoneNumber() + " | " +
+                                borrowerController.getBorrowersList().get(y).getBorrowerEmail());
+                    }
+
+                    borrowerController.readAllBorrowers();
+
+                    Long borrowerSelectionOrCreation = scanner.nextLong();
+                    scanner.nextLine();
+
+                    if (borrowerSelectionOrCreation.equals(0L)) {
                         System.out.println("Please provide borrower FIRST NAME:");
                         String borrowerFirstName = scanner.nextLine();
                         System.out.println("Please provide borrower LAST NAME:");
@@ -232,11 +252,12 @@ public class LibraryLauncher {
                         String borrowerPhoneNumber = scanner.nextLine();
                         System.out.println("Please provide borrower BORROWER EMAIL:");
                         String borrowerEmail = scanner.nextLine();
-                        borrowerController.save(borrowerFirstName,borrowerLastName,borrowerHomeAddress,borrowerPhoneNumber,borrowerEmail);
+                        borrowerController.save(borrowerFirstName, borrowerLastName, borrowerHomeAddress, borrowerPhoneNumber, borrowerEmail);
+                        state = State.RENTTING_BOOK;
+                        break;
                     } else {
-
+                        //Borrower borrower = borrowerController.getBorrower(borrowerSelectionOrCreation);
                     }
-
 
                     state = State.INIT;
                     break;

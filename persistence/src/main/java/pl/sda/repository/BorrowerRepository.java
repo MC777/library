@@ -24,4 +24,34 @@ public class BorrowerRepository implements IBorrowerRepository{
         borrowers.add(borrower);
         OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), borrowers);
     }
+
+    @Override
+    public Borrower getBorrower(Long borrowerId) throws IOException {
+        List<Borrower> borrowers = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Borrower>>() {
+        });
+
+        for (Borrower b : borrowers) {
+            if (borrowerId.equals(b.getBorrowerId())) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void readAllBorrowers() throws IOException {
+        List<Borrower> borrowers = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Borrower>>() {
+        });
+
+        for (Borrower b : borrowers) {
+              b.toString();
+        }
+    }
+    @Override
+    public List<Borrower> getBorrowersList() throws IOException {
+        List<Borrower> borrowers = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Borrower>>() {
+        });
+        return borrowers;
+    }
+
 }

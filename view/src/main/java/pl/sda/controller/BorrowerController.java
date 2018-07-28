@@ -5,6 +5,7 @@ import pl.sda.service.BorrowerService;
 import pl.sda.service.IBorrowerService;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by MCK on 22.07.2018 09:53
@@ -21,5 +22,17 @@ public class BorrowerController {
         borrower.setBorrowerPhoneNumber(borrowerPhoneNumber);
         borrower.setBorrowerEmail(borrowerEmail);
         borrowerService.save(borrower);
+    }
+
+    public Borrower getBorrower(Long borrowerId) throws IOException {
+        return borrowerService.getBorrower(borrowerId);
+    }
+
+    public void readAllBorrowers() throws IOException {
+        borrowerService.readAllBorrowers();
+    }
+
+    public List<Borrower> getBorrowersList() throws IOException{
+        return borrowerService.getBorrowersList();
     }
 }

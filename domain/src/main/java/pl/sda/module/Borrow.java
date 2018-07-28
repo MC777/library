@@ -17,4 +17,13 @@ public class Borrow {
     private Long borrowerId;
     private Long bookId;
 
+    @Override
+    public String toString() {
+        return "Borrow{" +
+                "borrowId=" + borrowId +
+                ", borrowDate=" + borrowDate +
+                ", borrowerId=" + borrowerId +
+                ", bookId=" + bookId +
+                '}';
+    }
 }
