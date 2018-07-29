@@ -36,9 +36,9 @@ public class LibraryLauncher {
         while (state != State.EXIT) {
             switch (state) {
                 case INIT:
-                    System.out.println("****************************************************************");
+                    System.out.println("*************************************************************************************************************************");
                     System.out.println("What would you like to do?");
-                    System.out.println("****************************************************************");
+                    System.out.println("*************************************************************************************************************************");
                     System.out.println(" 1. Dodanie książki");
                     System.out.println(" 2. Usunięcie książki");
                     System.out.println(" 3. Edycja Książki");
@@ -47,7 +47,7 @@ public class LibraryLauncher {
                     System.out.println(" 6. Wypożyczenie książki");
                     System.out.println(" 7. Oddanie książki");
                     System.out.println(" 0. Exit program");
-                    System.out.println("****************************************************************");
+                    System.out.println("*************************************************************************************************************************");
                     String answer = scanner.nextLine();
 
                     switch (answer) {
@@ -277,10 +277,26 @@ public class LibraryLauncher {
                         LocalDate borrowDate = LocalDate.now();
                         borrowController.save(borrowDate, borrowerSelectionOrCreation, noOfBookToBorrow,borrowFlag);
                     }
-
                     state = State.INIT;
                     break;
                 case GETTING_BACK_BOOK:
+                    System.out.println("Please provide BOOK ID to get back:");
+                    bookController.readBorrowedBooks();
+
+                    Long bookToGetBack = scanner.nextLong();
+                    scanner.nextLine();
+
+                    boolean checkIfBookIsBorrowed = bookController.getBook(bookToGetBack).isBorrow();
+                    if (!checkIfBookIsBorrowed) {
+                        System.err.println("[Book was not borrowed] Id: " + bookToGetBack);
+                        state = State.GETTING_BACK_BOOK;
+                        break;
+                    }
+
+                    bookController.updateBookFlag(bookToGetBack,false);
+                    borrowController.updateBorrowFlag(bookToGetBack,false);
+
+                    state = State.INIT;
                     break;
                 case EXIT:
                     break;

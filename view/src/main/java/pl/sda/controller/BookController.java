@@ -42,6 +42,10 @@ public class BookController {
         bookService.readAvailableBooks();
     }
 
+    public void readBorrowedBooks() throws IOException{
+        bookService.readBorrowedBooks();
+    }
+
     public void readBooks(Long bookId) throws IOException{
         bookService.readBooks(bookId);
     }

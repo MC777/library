@@ -9,4 +9,6 @@ import java.io.IOException;
  **/
 public interface IBorrowService {
     void save(Borrow borrow) throws IOException;
+
+    void updateBorrowFlag(Long bookId, boolean borrowFlag) throws IOException;
 }

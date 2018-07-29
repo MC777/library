@@ -4,8 +4,8 @@
     "borrowDate": "2018-07-29",
     "borrowerId": 1,
     "bookId": 2,
-    "backDate": null,
-    "borrowFlag": true
+    "backDate": "2018-07-29",
+    "borrowFlag": false
   },
   {
     "borrowId": 2,

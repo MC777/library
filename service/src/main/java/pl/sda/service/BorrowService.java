@@ -17,4 +17,9 @@ public class BorrowService implements IBorrowService {
     public void save(Borrow borrow) throws IOException {
         borrowRepository.save(borrow);
     }
+
+    @Override
+    public void updateBorrowFlag(Long bookId, boolean borrowFlag) throws IOException {
+        borrowRepository.updateBorrowFlag(bookId, borrowFlag);
+    }
 }

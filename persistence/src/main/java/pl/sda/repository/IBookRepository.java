@@ -19,9 +19,12 @@ public interface IBookRepository {
 
     void readAvailableBooks() throws IOException;
 
+    void readBorrowedBooks() throws IOException;
+
     Book getBook(Long bookId) throws IOException;
 
     void editBook(Book book) throws IOException;
 
     void updateBookFlag(Long bookId, boolean bookFlag) throws IOException;
+
 }

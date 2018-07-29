@@ -48,6 +48,11 @@ public class BookService implements IBookService{
     }
 
     @Override
+    public void readBorrowedBooks() throws IOException {
+        bookRepository.readBorrowedBooks();
+    }
+
+    @Override
     public Book getBook(Long bookId) throws IOException {
         return  bookRepository.getBook(bookId);
     }

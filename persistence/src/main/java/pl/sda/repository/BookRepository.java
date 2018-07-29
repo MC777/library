@@ -70,6 +70,16 @@ public class BookRepository implements IBookRepository {
     }
 
     @Override
+    public void readBorrowedBooks() throws IOException {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
+        });
+        for (Book b : books) {
+            if (b.isBorrow())
+                System.out.println(b.getBookId() + " - " + b.getTitle() + " | " + b.getRelease() + " | " + b.getIsbn() + " | " + b.getAuthorName() + " | " + b.getBookType() + " | " + b.getPages() + " | " + b.getSummary() + " | " + b.isBorrow());
+        }
+    }
+
+    @Override
     public Book getBook(Long bookId) throws IOException {
         List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
         });

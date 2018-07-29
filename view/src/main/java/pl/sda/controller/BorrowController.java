@@ -23,4 +23,7 @@ public class BorrowController {
         borrowService.save(borrow);
     }
 
+    public void updateBorrowFlag(Long bookId,boolean borrowFlag) throws IOException{
+        borrowService.updateBorrowFlag(bookId, borrowFlag);
+    }
 }
