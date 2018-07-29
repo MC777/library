@@ -16,6 +16,24 @@ public class Borrow {
     private LocalDate borrowDate;
     private Long borrowerId;
     private Long bookId;
+    private LocalDate backDate;
+    private boolean borrowFlag;
+
+    public Borrow() {
+    }
+
+/*    public Borrow(LocalDate borrowDate, Long borrowerId, Long bookId) {
+        this.borrowDate = borrowDate;
+        this.borrowerId = borrowerId;
+        this.bookId = bookId;
+    }
+
+    public Borrow(Long borrowId, LocalDate borrowDate, Long borrowerId, Long bookId) {
+        this.borrowId = borrowId;
+        this.borrowDate = borrowDate;
+        this.borrowerId = borrowerId;
+        this.bookId = bookId;
+    }*/
 
     @Override
     public String toString() {

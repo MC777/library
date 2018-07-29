@@ -1,5 +1,8 @@
 package pl.sda.entry;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.sda.controller.AuthorController;
 import pl.sda.controller.BookController;
 import pl.sda.controller.BorrowController;
@@ -7,12 +10,9 @@ import pl.sda.controller.BorrowerController;
 import pl.sda.entry.enums.State;
 import pl.sda.module.Book;
 import pl.sda.module.BooksType;
-import pl.sda.module.Borrow;
-import pl.sda.module.Borrower;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -24,10 +24,14 @@ public class LibraryLauncher {
 
         State state = State.INIT;
         Scanner scanner = new Scanner(System.in);
+
         BookController bookController = new BookController();
         AuthorController authorController = new AuthorController();
         BorrowerController borrowerController = new BorrowerController();
         BorrowController borrowController = new BorrowController();
+        final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+        OBJECT_MAPPER.registerModule(new JavaTimeModule());
+        OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
 
         while (state != State.EXIT) {
             switch (state) {
@@ -224,7 +228,7 @@ public class LibraryLauncher {
                     System.out.println("0 - add new one");
 
                     int borrowerListSize = borrowerController.getBorrowersList().size();
-                    for (int y = 0; y < borrowerListSize; y++){
+                    for (int y = 0; y < borrowerListSize; y++) {
                         System.out.println(borrowerController.getBorrowersList().get(y).getBorrowerId() + " - " +
                                 borrowerController.getBorrowersList().get(y).getBorrowerFirstName() + " | " +
                                 borrowerController.getBorrowersList().get(y).getBorrowerLastName() + " | " +
@@ -257,8 +261,21 @@ public class LibraryLauncher {
                         bookController.readAvailableBooks();
                         Long noOfBookToBorrow = scanner.nextLong();
                         scanner.nextLine();
+
+                        boolean checkIfBookIsBorrowed = bookController.getBook(noOfBookToBorrow).isBorrow();
+                        if (!checkIfBookIsBorrowed) {
+
+
+                        } else {
+                            System.err.println("[Book is already borrowed] Id: " + noOfBookToBorrow);
+                            state = State.RENTTING_BOOK;
+                            break;
+                        }
+                        //bookController.getBook(noOfBookToBorrow).setBorrow(true);
+                        bookController.updateBookFlag(noOfBookToBorrow,true);
+                        boolean borrowFlag = true;
                         LocalDate borrowDate = LocalDate.now();
-                        borrowController.save(borrowDate,borrowerSelectionOrCreation,noOfBookToBorrow);
+                        borrowController.save(borrowDate, borrowerSelectionOrCreation, noOfBookToBorrow,borrowFlag);
                     }
 
                     state = State.INIT;

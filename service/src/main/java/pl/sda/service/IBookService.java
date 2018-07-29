@@ -20,4 +20,5 @@ public interface IBookService {
 
     void editBook(Book book) throws  IOException;
 
+    void updateBookFlag(Long bookId, boolean bookFlag) throws IOException;
 }

@@ -3,7 +3,6 @@ package pl.sda.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import pl.sda.module.Book;
 
 import java.io.File;
@@ -95,6 +94,19 @@ public class BookRepository implements IBookRepository {
                 break;
             }
             i++;
+        }
+        OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), books);
+    }
+
+    @Override
+    public void updateBookFlag(Long bookId, boolean bookFlag) throws IOException {
+        List<Book> books = OBJECT_MAPPER.readValue(new File(AUTHOR_DB_PATH), new com.fasterxml.jackson.core.type.TypeReference<List<Book>>() {
+        });
+
+        for (Book b : books) {
+            if (bookId.equals(b.getBookId())) {
+                b.setBorrow(bookFlag);
+            }
         }
         OBJECT_MAPPER.writeValue(new File(AUTHOR_DB_PATH), books);
     }

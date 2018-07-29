@@ -14,11 +14,12 @@ public class BorrowController {
 
     private IBorrowService borrowService = new BorrowService();
 
-    public void save(LocalDate borrowDate, Long borrowerId, Long bookId)throws IOException{
+    public void save(LocalDate borrowDate, Long borrowerId, Long bookId,boolean borrowFlag)throws IOException{
         Borrow borrow = new Borrow();
         borrow.setBorrowDate(borrowDate);
         borrow.setBorrowerId(borrowerId);
         borrow.setBookId(bookId);
+        borrow.setBorrowFlag(borrowFlag);
         borrowService.save(borrow);
     }
 

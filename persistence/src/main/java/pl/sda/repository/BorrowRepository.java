@@ -1,6 +1,8 @@
 package pl.sda.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import pl.sda.module.Borrow;
 
 import java.io.File;
@@ -14,6 +16,11 @@ public class BorrowRepository implements IBorrowRepository {
 
     private static final String AUTHOR_DB_PATH = "./persistence/src/main/resources/borrow/borrow.json";
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
+    public BorrowRepository() {
+        OBJECT_MAPPER.registerModule(new JavaTimeModule());
+        OBJECT_MAPPER.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+    }
 
     @Override
     public void save(Borrow borrow) throws IOException {

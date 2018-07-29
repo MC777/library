@@ -53,4 +53,8 @@ public class BookController {
     public Book getBook(Long bookId) throws IOException {
         return bookService.getBook(bookId);
     }
+
+    public void updateBookFlag(Long bookId, boolean bookFlag) throws IOException{
+        bookService.updateBookFlag(bookId,bookFlag);
+    }
 }

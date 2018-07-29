@@ -21,7 +21,7 @@ public class BookService implements IBookService{
     public void save(Book book) throws IOException {
         bookRepository.save(book);
         Long bookId = book.getBookId();
-        System.setProperty("debug.log", "aaa");
+        LOGGER.debug("[Book has been added to books repository] Id: {}", bookId);
         LOGGER.info("[Book has been added to books repository] Id: {}", bookId);
         LOGGER.error("[Book has been added to books repository] Id: {}", bookId);
     }
@@ -56,6 +56,11 @@ public class BookService implements IBookService{
     @Override
     public void editBook(Book book) throws IOException {
         bookRepository.editBook(book);
+    }
+
+    @Override
+    public void updateBookFlag(Long bookId, boolean bookFlag) throws IOException {
+        bookRepository.updateBookFlag(bookId,bookFlag);
     }
 
 }
