@@ -13,6 +13,8 @@ public enum State {
     ADDING_AUTHOR,
     RENTTING_BOOK,
     GETTING_BACK_BOOK,
+    IMPORT_BOOKS,
+    EXPORT_BOOKS,
     EXIT,
 
 }

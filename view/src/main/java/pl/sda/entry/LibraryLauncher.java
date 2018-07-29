@@ -39,13 +39,15 @@ public class LibraryLauncher {
                     System.out.println("*************************************************************************************************************************");
                     System.out.println("What would you like to do?");
                     System.out.println("*************************************************************************************************************************");
-                    System.out.println(" 1. Dodanie książki");
-                    System.out.println(" 2. Usunięcie książki");
-                    System.out.println(" 3. Edycja Książki");
-                    System.out.println(" 4. Wyświetlenie wszystkich dostępnych książek w bibliotece");
-                    System.out.println(" 5. Dodanie autora");
-                    System.out.println(" 6. Wypożyczenie książki");
-                    System.out.println(" 7. Oddanie książki");
+                    System.out.println(" 1. Add book");
+                    System.out.println(" 2. Delete book");
+                    System.out.println(" 3. Edit book");
+                    System.out.println(" 4. Show all books");
+                    System.out.println(" 5. Add author");
+                    System.out.println(" 6. Borrow book");
+                    System.out.println(" 7. Get back book");
+                    System.out.println(" 8. Import books");
+                    System.out.println(" 9. Export books");
                     System.out.println(" 0. Exit program");
                     System.out.println("*************************************************************************************************************************");
                     String answer = scanner.nextLine();
@@ -77,6 +79,14 @@ public class LibraryLauncher {
 
                         case ("7"):
                             state = State.GETTING_BACK_BOOK;
+                            break;
+
+                        case ("8"):
+                            state = State.IMPORT_BOOKS;
+                            break;
+
+                        case ("9"):
+                            state = State.EXPORT_BOOKS;
                             break;
 
                         case ("0"):
@@ -295,6 +305,17 @@ public class LibraryLauncher {
 
                     bookController.updateBookFlag(bookToGetBack,false);
                     borrowController.updateBorrowFlag(bookToGetBack,false);
+
+                    state = State.INIT;
+                    break;
+
+                case IMPORT_BOOKS:
+
+
+                    state = State.INIT;
+                    break;
+                case EXPORT_BOOKS:
+
 
                     state = State.INIT;
                     break;

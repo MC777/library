@@ -14,5 +14,37 @@
     "bookId": 3,
     "backDate": null,
     "borrowFlag": true
+  },
+  {
+    "borrowId": 3,
+    "borrowDate": "2018-07-29",
+    "borrowerId": 6,
+    "bookId": 1,
+    "backDate": "2018-07-29",
+    "borrowFlag": false
+  },
+  {
+    "borrowId": 4,
+    "borrowDate": "2018-07-29",
+    "borrowerId": 4,
+    "bookId": 2,
+    "backDate": "2018-07-29",
+    "borrowFlag": false
+  },
+  {
+    "borrowId": 5,
+    "borrowDate": "2018-07-29",
+    "borrowerId": 4,
+    "bookId": 5,
+    "backDate": null,
+    "borrowFlag": true
+  },
+  {
+    "borrowId": 6,
+    "borrowDate": "2018-07-29",
+    "borrowerId": 1,
+    "bookId": 2,
+    "backDate": null,
+    "borrowFlag": true
   }
 ]
